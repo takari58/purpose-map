@@ -213,13 +213,6 @@ const goals = [
     }
 ];
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-const targetSpot =
-    params.get("spot");
-
 const categoryColors = {
     "観光": "#f39c12",
     //"神社・寺": "#8e44ad",
@@ -723,3 +716,30 @@ document
             );
         }
     );
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+const targetSpot =
+    params.get("spot");
+if (targetSpot) {
+    const goal =
+        goals.find(
+            g => g.name === targetSpot
+        );
+    if (goal) {
+        map.setView(
+            [goal.lat, goal.lng],
+            18
+        );
+        const markerData =
+            markers.find(
+                m =>
+                m.goal.name === goal.name
+            );
+        if (markerData) {
+            markerData.marker.openPopup();
+        }
+    }
+}

@@ -3,7 +3,7 @@ const map = L.map("map",{
         minZoom:5
 })
 
-/*
+
 const params =
     new URLSearchParams(
         window.location.search
@@ -17,9 +17,9 @@ navigator.geolocation.getCurrentPosition(
 
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        //if(!targetSpot){
+        if(!targetSpot){
                 map.setView([lat, lng], 18);
-        //}
+        }
         updateCurrentMarker(
             lat,
             lng,
@@ -706,12 +706,6 @@ document
         }
     );
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-const targetSpot =
-    params.get("spot");
 if (targetSpot) {
     const goal = goals.find(
         g => g.name === targetSpot
@@ -744,4 +738,4 @@ if (targetSpot) {
         `;
     }
 }
-*/
+

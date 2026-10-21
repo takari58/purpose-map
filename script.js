@@ -566,6 +566,14 @@ function displayResults(results) {
                 🚶 <strong>アクセス</strong><br>
                 ${spot.access}
             </div>
+
+            <a
+                class="map-botton"
+                href="root.html
+            spot=${encodeURIComponent(spot.name)}"
+                >
+                マップで確認
+                </a>
         `;
         resultList.appendChild(card);
     });

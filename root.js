@@ -8,9 +8,9 @@ navigator.geolocation.getCurrentPosition(
 
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-
-        map.setView([lat, lng], 18);
-
+        if(!targetSpot){
+                map.setView([lat, lng], 18);
+        }
         updateCurrentMarker(
             lat,
             lng,
@@ -708,11 +708,12 @@ if (targetSpot) {
         g => g.name === targetSpot
     );
     if (goal) {
+        //中心にして表示
         map.setView(
             [goal.lat, goal.lng],
             18
         );
-
+        //ポップアップ表示
         const markerData =
             markers.find(
                 m =>
@@ -721,5 +722,16 @@ if (targetSpot) {
         if (markerData) {
             markerData.marker.openPopup();
         }
+        / 情報欄も更新
+        document.getElementById("info")
+            .innerHTML = `
+            <div class="destination-name">
+                ${goal.icon}
+                ${goal.name}
+            </div>
+            <div class="destination-category">
+                ${goal.category}
+            </div>
+        `;
     }
 }

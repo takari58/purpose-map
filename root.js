@@ -722,7 +722,7 @@ if (targetSpot) {
         if (markerData) {
             markerData.marker.openPopup();
         }
-        / 情報欄も更新
+        // 情報欄も更新
         document.getElementById("info")
             .innerHTML = `
             <div class="destination-name">

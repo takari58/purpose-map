@@ -116,6 +116,24 @@ main {
     color: #555;
     margin-top: 10px;
 }
+.map-button{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 18px;
+    background:#4caf50;
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+    font-weight:bold;
+    font-size:14px;
+    transition:0.2s;
+}
+.map-button:hover{
+    background:#43a047;
+}
+.map-button:active{
+    transform:scale(0.95);
+}
 @media (max-width: 600px) {
     header h1 {
         font-size: 26px;

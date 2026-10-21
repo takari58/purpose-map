@@ -724,19 +724,19 @@ const params =
 const targetSpot =
     params.get("spot");
 if (targetSpot) {
-    const goal =
-        goals.find(
-            g => g.name === targetSpot
-        );
+    const goal = goals.find(
+        g => g.name === targetSpot
+    );
     if (goal) {
         map.setView(
             [goal.lat, goal.lng],
             18
         );
+
         const markerData =
             markers.find(
                 m =>
-                m.goal.name === goal.name
+                m.goal.name === targetSpot
             );
         if (markerData) {
             markerData.marker.openPopup();

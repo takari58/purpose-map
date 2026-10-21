@@ -289,26 +289,6 @@ goals.forEach(goal => {
     });
 });
 
-if (targetSpot) {
-    const goal =
-        goals.find(
-            g => g.name === targetSpot
-        );
-    if (goal) {
-        map.setView(
-            [goal.lat, goal.lng],
-            18
-        );
-        const markerData =
-            markers.find(
-                m => m.goal.name === targetSpot
-            );
-        if (markerData) {
-            markerData.marker.openPopup();
-        }
-    }
-}
-
 // 目的地を選択
 function selectGoal(name) {
     const goal = goals.find(

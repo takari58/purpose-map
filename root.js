@@ -17,19 +17,10 @@ navigator.geolocation.getCurrentPosition(
 
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
+
         if(!targetSpot){
-                map.setView([lat, lng], 18);
-        }else{
-                const goal = goals.find(
-                        g => g.name === targetSpot
-                );
-                if(goal){
-                        map.setView(
-                                [goal.lat,goal.lng],
-                                18
-                        );
-                }
-        };
+            map.setView([lat, lng], 18);
+        }
         updateCurrentMarker(
             lat,
             lng,
@@ -721,27 +712,21 @@ if (targetSpot) {
     const goal = goals.find(
         g => g.name === targetSpot
     );
-    console.log("goal =", goal);
     if (goal) {
-        setTimeout(() => {
-            map.flyTo(
-                [goal.lat, goal.lng],
-                18
+        map.flyTo(
+            [goal.lat, goal.lng],
+            18
+        );
+        console.log(
+        "center",
+        map.getCenter()
+        );
+        const markerData =
+            markers.find(
+                m => m.goal.name === targetSpot
             );
-            const markerData =
-                markers.find(
-                    m =>
-                    m.goal.name === targetSpot
-                );
-            if (markerData) {
-                markerData.marker.openPopup();
-            }
-        }, 1000);
+        if (markerData) {
+            markerData.marker.openPopup();
+        }
     }
 }
-setTimeout(() => {
-    map.flyTo(
-        [goal.lat, goal.lng],
-        18
-    );
-}, 1000);

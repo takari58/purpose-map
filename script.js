@@ -569,7 +569,7 @@ function displayResults(results) {
 
             <a
                 class="map-botton"
-                href="root.html
+                href="root.html?
             spot=${encodeURIComponent(spot.name)}"
                 >
                 マップで確認

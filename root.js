@@ -706,17 +706,18 @@ document
         }
     );
 
+console.log("targetSpot =", targetSpot);
 if (targetSpot) {
+
     const goal = goals.find(
         g => g.name === targetSpot
     );
+    console.log("goal =", goal);
     if (goal) {
-        //中心にして表示
         map.setView(
             [goal.lat, goal.lng],
             18
         );
-        //ポップアップ表示
         const markerData =
             markers.find(
                 m =>
@@ -725,17 +726,5 @@ if (targetSpot) {
         if (markerData) {
             markerData.marker.openPopup();
         }
-        // 情報欄も更新
-        document.getElementById("info")
-            .innerHTML = `
-            <div class="destination-name">
-                ${goal.icon}
-                ${goal.name}
-            </div>
-            <div class="destination-category">
-                ${goal.category}
-            </div>
-        `;
     }
 }
-

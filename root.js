@@ -2,6 +2,14 @@ const map = L.map("map",{
         maxZoom:19,
         minZoom:5
 })
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+const targetSpot =
+    params.get("spot");
+
 //初期位置を現在地に
 navigator.geolocation.getCurrentPosition(
     function(position) {

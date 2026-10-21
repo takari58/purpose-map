@@ -568,9 +568,8 @@ function displayResults(results) {
             </div>
 
             <a
-                class="map-botton"
-                href="root.html?
-            spot=${encodeURIComponent(spot.name)}"
+                class="map-button"
+                href="root.html?spot=${encodeURIComponent(spot.name)}"
                 >
                 マップで確認
                 </a>
